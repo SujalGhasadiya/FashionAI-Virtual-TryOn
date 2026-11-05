@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env.local
+.env.*.local
+.DS_Store
+*.log
+.vscode/
+.idea/
+.cache/
+build/
+coverage/
+.vercel/
+.turbo/
+pnpm-lock.yaml
+yarn.lock

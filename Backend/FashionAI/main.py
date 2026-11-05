@@ -1,0 +1,9 @@
+import sys
+from pathlib import Path
+
+
+backend_root = Path(__file__).resolve().parents[1] / "backend"
+if str(backend_root) not in sys.path:
+    sys.path.append(str(backend_root))
+
+from app.main import app

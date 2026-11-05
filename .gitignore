@@ -1,0 +1,76 @@
+# Global ignores
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+*.env
+*.env.local
+*.env.*.local
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+.npm
+.eslintcache
+
+# Testing & Caches
+.pytest_cache/
+.coverage
+htmlcov/
+*.resolved
+*.egg-info/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temp
+*.log
+logs/
+*.zip
+*.tmp
+*.bak
+
+# Local helper scripts
+START_ALL.bat
+
+# -----------------------------
+# FashionAI: do not upload datasets or heavy models
+# -----------------------------
+Backend/FashionAI/datasets/
+Backend/FashionAI/models/*.pth
+Backend/FashionAI/models/
+Backend/FashionAI/assets/input/
+Backend/FashionAI/assets/output/
+Backend/FashionAI/assets/result/
+
+# -----------------------------
+# TryOn: keep source, skip generated/heavy files
+# -----------------------------
+Backend/TryOn/fashn-vton-1.5/outputs/
+Backend/TryOn/fashn-vton-1.5/static/uploads/
+Backend/TryOn/fashn-vton-1.5/static/results/
+Backend/TryOn/fashn-vton-1.5/debug_outputs/
+Backend/TryOn/fashn-vton-1.5/test_outputs/
+Backend/TryOn/fashn-vton-1.5/test_outputs_*
+
+Backend/TryOn/static/uploads/
+Backend/TryOn/static/results/
+
+Backend/TryOn/fashn-vton-1.5/weights/
+Backend/TryOn/static/uploads/
+Backend/TryOn/static/results/
+
+# Backend Media Storage
+Backend/backend/app/media/*
+!Backend/backend/app/media/**/.gitkeep

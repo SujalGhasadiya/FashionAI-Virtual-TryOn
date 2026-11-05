@@ -1,0 +1,7 @@
+# Dependencies used by scripts in FashionAI/FashionAI/training
+numpy
+opencv-python
+matplotlib
+pillow
+torch
+torchvision

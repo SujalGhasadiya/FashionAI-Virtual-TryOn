@@ -1,0 +1,19 @@
+# Backend
+fastapi
+uvicorn
+pymongo
+dnspython
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
+python-dotenv
+email-validator
+pillow
+
+# Existing AI / training dependencies
+numpy
+opencv-python
+matplotlib
+torch
+torchvision
+transformers

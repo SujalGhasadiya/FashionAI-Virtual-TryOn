@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Try-On</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, button {
+            margin-top: 6px;
+            margin-bottom: 12px;
+        }
+
+        button {
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: #b00020;
+            margin-bottom: 16px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload Images</h2>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Person Image:</label><br>
+        <input type="file" name="person" accept="image/*" required><br>
+
+        <label>Cloth Image:</label><br>
+        <input type="file" name="cloth" accept="image/*" required><br>
+
+        <label>Category:</label><br>
+        <select name="category">
+            <option value="tops">tops</option>
+            <option value="bottoms">bottoms</option>
+            <option value="one-pieces">one-pieces</option>
+        </select><br>
+
+        <label>Garment Photo Type:</label><br>
+        <select name="garment_photo_type">
+            <option value="flat-lay" selected>flat-lay / catalog</option>
+            <option value="model">on model</option>
+        </select><br>
+
+        <label>
+            <input type="checkbox" name="neck_safe_mode" checked>
+            Neck-safe mode (helps reduce collar/back-neck artifacts)
+        </label><br>
+
+        <button type="submit">Try On</button>
+    </form>
+
+    {% if output %}
+        <div class="result">
+            <h3>Result:</h3>
+            {% if saved_filename %}
+                <p>Saved file: <strong>{{ saved_filename }}</strong></p>
+            {% endif %}
+            <img src="{{ url_for('static', filename=output) }}" alt="Try-on result">
+        </div>
+    {% endif %}
+</body>
+</html>
+

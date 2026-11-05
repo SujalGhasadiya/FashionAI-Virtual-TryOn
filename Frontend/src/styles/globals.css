@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   FASHION AI DESIGN SYSTEM
+   Base: Warm Editorial (Space Grotesk + EB Garamond)
+   Accent: Terracotta #c65d2c
+   ============================================ */
+
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-charcoal antialiased;
+  font-family: 'Space Grotesk', 'Inter', '-apple-system', 'system-ui', 'sans-serif';
+  /* Warm multi-radial background from reference design */
+  background:
+    radial-gradient(circle at 15% 10%, rgba(198, 93, 44, 0.18), transparent 24%),
+    radial-gradient(circle at 85% 5%, rgba(41, 90, 116, 0.12), transparent 20%),
+    radial-gradient(circle at 90% 88%, rgba(198, 93, 44, 0.08), transparent 20%),
+    linear-gradient(180deg, #faf6f0 0%, #f4ede4 44%, #e7ddd0 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Root tokens */
+:root {
+  color-scheme: light;
+  --color-primary: #fdfcfb;
+  --color-secondary: #f4f1ee;
+  --color-accent: #c65d2c;
+  --color-accent-gold: #ca8a04;
+  --color-sage: #7a8d6b;
+  --color-powder: #94a7c0;
+  --color-rose: #a78597;
+}
+
+/* ============================================
+   HEADINGS — EB Garamond Serif
+   ============================================ */
+
+h1, h2, h3, h4 {
+  font-family: 'EB Garamond', 'Georgia', 'serif';
+  @apply tracking-tight text-charcoal;
+}
+
+h1 { @apply text-4xl sm:text-5xl font-semibold; }
+h2 { @apply text-3xl sm:text-4xl font-semibold; }
+h3 { @apply text-2xl sm:text-3xl font-semibold; }
+h4 { @apply text-xl sm:text-2xl font-semibold; }
+h5 { @apply text-lg sm:text-xl font-semibold text-charcoal; }
+h6 { @apply text-base sm:text-lg font-semibold text-charcoal; }
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar { @apply w-2 h-2; }
+::-webkit-scrollbar-track { @apply bg-ivory; }
+::-webkit-scrollbar-thumb { @apply bg-warm-gray rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-stone; }
+
+::selection { @apply bg-terracotta/20 text-charcoal; }
+
+/* ============================================
+   GLASS & PANEL EFFECTS
+   ============================================ */
+
+.glass {
+  @apply bg-white/90 border border-warm-gray/30 shadow-luxury backdrop-blur-xl;
+}
+
+.glass-lg {
+  @apply bg-white/90 border border-warm-gray/40 shadow-luxury-lg backdrop-blur-xl;
+}
+
+.glass-subtle {
+  @apply bg-white/70 border border-warm-gray/20 backdrop-blur;
+}
+
+/* Reference-style panel — the core card surface */
+.panel {
+  @apply rounded-[28px] border border-warm-gray bg-ivory/90 p-6 shadow-soft backdrop-blur-xl;
+}
+
+/* ============================================
+   SHADOWS
+   ============================================ */
+
+.shadow-luxury   { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); }
+.shadow-luxury-lg{ box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1); }
+.shadow-premium  { box-shadow: 0 4px 12px rgba(198, 93, 44, 0.2); }
+
+/* ============================================
+   GRADIENTS
+   ============================================ */
+
+.gradient-luxury   { background: linear-gradient(135deg, #faf8f6 0%, #e8e4df 100%); }
+.gradient-warm     { background: linear-gradient(135deg, #f5f3f0 0%, #d4cdc6 100%); }
+.gradient-gold     { background: linear-gradient(135deg, #ca8a04 0%, #d9a405 100%); }
+.gradient-sage     { background: linear-gradient(135deg, #5a6a4d 0%, #6b7d5e 100%); }
+.gradient-powder   { background: linear-gradient(135deg, #7a8ba3 0%, #8397b1 100%); }
+.gradient-rose     { background: linear-gradient(135deg, #947585 0%, #826875 100%); }
+.gradient-terracotta { background: linear-gradient(135deg, #c65d2c 0%, #b65126 100%); }
+
+.text-gradient-gold {
+  @apply bg-gradient-to-r from-gold-accent via-yellow-600 to-gold-accent bg-clip-text text-transparent;
+}
+.text-gradient-sage {
+  @apply bg-gradient-to-r from-sage via-green-600 to-sage bg-clip-text text-transparent;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  @apply px-5 py-3 rounded-2xl font-semibold text-sm transition-all duration-200 ease-out inline-flex items-center justify-center;
+}
+
+/* Terracotta (primary — matches reference) */
+.btn-primary {
+  @apply btn bg-terracotta text-white shadow-terracotta hover:bg-terracotta-dark;
+}
+
+/* Gold (kept for backward compat) */
+.btn-gold {
+  @apply btn bg-gold-accent text-cream hover:bg-yellow-600 shadow-premium;
+}
+
+/* Secondary / outline */
+.btn-secondary {
+  @apply btn bg-white border border-warm-gray text-charcoal hover:bg-ivory shadow-soft;
+}
+
+.btn-ghost {
+  @apply btn bg-transparent border border-warm-gray text-charcoal hover:bg-ivory hover:border-terracotta hover:text-terracotta;
+}
+
+.btn-sage   { @apply btn bg-sage text-cream hover:bg-green-700 shadow-luxury; }
+.btn-powder { @apply btn bg-powder-blue text-cream hover:bg-blue-600 shadow-luxury; }
+.btn-danger { @apply btn bg-rose-dust/10 border border-rose-dust/30 text-rose-dust hover:bg-rose-dust/20; }
+
+.btn-sm { @apply px-4 py-2 text-xs rounded-xl; }
+.btn-lg { @apply px-7 py-4 text-base rounded-2xl; }
+
+/* ============================================
+   INPUT FIELDS
+   ============================================ */
+
+.input-field {
+  @apply w-full px-4 py-3 bg-white border border-warm-gray rounded-2xl text-charcoal
+         placeholder-warm-taupe transition-all duration-200
+         focus:outline-none focus:border-terracotta;
+}
+
+.input-field::placeholder { @apply text-warm-taupe; }
+.textarea-field { @apply input-field resize-none; }
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+/* Main card — matches reference panel style */
+.card {
+  @apply bg-white border border-warm-gray rounded-[28px] p-6
+         transition-all duration-300 hover:shadow-luxury;
+}
+
+/* Luxury card (existing alias) */
+.card-luxury {
+  @apply bg-ivory border border-warm-gray rounded-[28px] p-6
+         shadow-soft transition-all duration-300 hover:shadow-luxury;
+}
+
+.card-garment {
+  @apply bg-ivory border border-warm-gray rounded-2xl p-2
+         shadow-soft transition-all duration-300 hover:shadow-luxury;
+}
+
+.card-glass {
+  @apply glass rounded-[28px] p-6;
+}
+
+.card-hover {
+  @apply card hover:scale-[1.02] hover:shadow-luxury-lg cursor-pointer;
+}
+
+/* ============================================
+   EYEBROW LABELS (reference pattern)
+   ============================================ */
+
+.label-eyebrow {
+  @apply text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-terracotta-deep;
+}
+
+.label-eyebrow-badge {
+  @apply inline-flex rounded-full bg-terracotta/10 px-4 py-1
+         text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-terracotta-deep;
+}
+
+/* ============================================
+   STATUS BADGES
+   ============================================ */
+
+.badge-active   { @apply rounded-full bg-sage/20 text-sage px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]; }
+.badge-inactive { @apply rounded-full bg-gold-accent/20 text-gold-accent px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]; }
+.badge-error    { @apply rounded-full bg-rose-dust/20 text-rose-dust px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em]; }
+
+/* ============================================
+   NAV ITEMS
+   ============================================ */
+
+.nav-item {
+  @apply rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150;
+}
+
+.nav-item-active   { @apply nav-item bg-charcoal text-cream; }
+.nav-item-inactive { @apply nav-item text-warm-taupe hover:bg-white hover:text-charcoal; }
+
+/* ============================================
+   CONTAINERS
+   ============================================ */
+
+.container-luxury { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+.section-padding  { @apply py-12 sm:py-16 lg:py-20; }
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+
+.text-muted    { @apply text-warm-taupe; }
+.text-subtitle { @apply text-warm-taupe text-sm sm:text-base; }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Premium toast slide — matches reference cubic-bezier */
+@keyframes toastSlideIn {
+  0%   { opacity: 0; transform: translateX(28px) scale(0.98); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.animate-fade-in    { animation: fadeInUp 0.6s ease-out; }
+.animate-fade-down  { animation: fadeInDown 0.6s ease-out; }
+.animate-slide-left { animation: slideInLeft 0.6s ease-out; }
+.animate-slide-right{ animation: slideInRight 0.6s ease-out; }
+.animate-scale-in   { animation: scaleIn 0.6s ease-out; }
+.toast-enter        { animation: toastSlideIn 280ms cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.skeleton {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg,
+    rgba(212, 205, 198, 0.2) 25%,
+    rgba(212, 205, 198, 0.4) 50%,
+    rgba(212, 205, 198, 0.2) 75%);
+  background-size: 1000px 100%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .btn        { @apply px-4 py-2.5 text-sm; }
+  .card       { @apply p-4; }
+  .card-luxury{ @apply p-4; }
+  h1 { @apply text-2xl; }
+  h2 { @apply text-xl; }
+}
+
+
